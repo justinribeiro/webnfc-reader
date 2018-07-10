@@ -1,0 +1,30 @@
+{
+  "name": "@justinribeiro/webnfc-reader",
+  "description": "Read nfc tags with WebNFC (currently behind a flag in Chrome).",
+  "author": "Justin Ribeiro <justin@justinribeiro.com>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:justinribeiro/webnfc-reader.git"
+  },
+  "license": "MIT",
+  "version": "0.2.2",
+  "main": "webnfc-reader.js",
+  "dependencies": {
+    "@polymer/lit-element": "^0.5.2",
+    "@polymer/polymer": "^3.0.0"
+  },
+  "devDependencies": {
+    "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "wct-browser-legacy": "^1.0.0"
+  },
+  "keywords": [
+    "polymer",
+    "polymer 3",
+    "web components",
+    "lit-html",
+    "lit-element",
+    "webnfc",
+    "nfc"
+  ]
+}
