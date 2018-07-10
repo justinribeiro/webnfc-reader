@@ -17,6 +17,12 @@ import {LitElement, html} from '@polymer/lit-element';
  * | `verbose` | Status messages sent through custom event `webnfc-reader-status` | false |
  * | `sound` | Make a beep sound through Web Audio API when tag is read | false |
  *
+ * #### Events
+ * | Name | Description
+ * | --- | --- |
+ * | webnfc-reader-status | Watch and status messages |
+ * | webnfc-reader-watch | Receive WebNFC records on tag read |
+ *
  * @polymer
  * @extends HTMLElement
  * @demo demo/index.html
@@ -45,9 +51,11 @@ class WebnfcReader extends LitElement {
     this.initWatch();
   }
 
-  // TODO optional four dot led indicator UI?
+  // TODO optional four dot led indicator UI? Add slot for time being.
   _render() {
-    return html``;
+    return html`
+      <slot></slot>
+    `
   }
 
   initWatch() {
@@ -91,26 +99,26 @@ class WebnfcReader extends LitElement {
 
     const oscillator = this._audioContext.createOscillator();
     const gain = this._audioContext.createGain();
-    oscillator.type = 'sine';
-    oscillator.frequency.value = 800;
+    oscillator.type = 'square';
+    oscillator.frequency.value = 600;
     oscillator.connect(gain);
 
     gain.connect(this._audioContext.destination);
-    gain.gain.setValueAtTime(1, this._audioContext.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.00001, this._audioContext.currentTime + 0.3);
+    gain.gain.setValueAtTime(20, this._audioContext.currentTime)
+    gain.gain.exponentialRampToValueAtTime(0.00001, this._audioContext.currentTime + 0.2);
 
     oscillator.onended = () => {
-      gain.disconnect(this._audioContextcontext.destination);
+      gain.disconnect(this._audioContext.destination);
       oscillator.disconnect(gain);
     }
 
     oscillator.start(this._audioContext.currentTime);
-    oscillator.stop(this._audioContext.currentTime+0.4);
+    oscillator.stop(this._audioContext.currentTime+0.2);
   }
 
   status(type, message) {
     if (this.verbose) {
-      this.dispatchEvent(new CustomEvent('webnfc-reader-statu', {
+      this.dispatchEvent(new CustomEvent('webnfc-reader-status', {
         bubbles: true,
         composed: true,
         detail: {

@@ -14,14 +14,6 @@
     </script>
 
     <script type="module" src="../webnfc-reader.js"></script>
-    <script>
-      document.addEventListener('webnfc-reader-status', (event) => {
-        console.log(event);
-      });
-      document.addEventListener('webnfc-reader-watch', (event) => {
-        console.log(event);
-      });
-    </script>
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
       </style>
@@ -32,15 +24,59 @@
       <h3>Basic webnfc-reader demo</h3>
       <demo-snippet>
         <template>
-          <webnfc-reader></webnfc-reader>
+            <webnfc-reader></webnfc-reader>
+            <script>
+              document.querySelector("webnfc-reader")
+                .addEventListener('webnfc-reader-watch', (event) => {
+                  console.log(event.detail.record);
+                });
+            </script>
         </template>
       </demo-snippet>
     </div>
     <div class="vertical-section-container centered">
       <h3>webnfc-reader with sound</h3>
-      <demo-snippet>
+      <demo-snippet id="sound">
         <template>
           <webnfc-reader sound></webnfc-reader>
+          <script>
+            document.querySelector("webnfc-reader")
+              .addEventListener('webnfc-reader-watch', (event) => {
+                console.log(event.detail.record);
+              });
+          </script>
+        </template>
+      </demo-snippet>
+    </div>
+    <div class="vertical-section-container centered">
+      <h3>webnfc-reader verbose</h3>
+      <demo-snippet id="sound">
+        <template>
+          <webnfc-reader verbose></webnfc-reader>
+          <script>
+            document.querySelector("webnfc-reader")
+              .addEventListener('webnfc-reader-status', (event) => {
+                console.log(event.detail);
+              });
+          </script>
+        </template>
+      </demo-snippet>
+    </div>
+    <div class="vertical-section-container centered">
+      <h3>webnfc-reader watch options</h3>
+      <demo-snippet id="sound">
+        <template>
+          <webnfc-reader
+            url="http://example.com/*"
+            recordtype="json"
+            mediatype="application/*+json">
+          </webnfc-reader>
+          <script>
+            document.querySelector("webnfc-reader")
+              .addEventListener('webnfc-reader-watch', (event) => {
+                console.log(event.detail.record);
+              });
+          </script>
         </template>
       </demo-snippet>
     </div>
