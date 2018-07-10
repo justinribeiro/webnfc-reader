@@ -4,8 +4,8 @@ import {LitElement, html} from '@polymer/lit-element';
  * `webnfc-reader`
  * Read nfc tags with WebNFC.
  * ```
- *  <webnfc-reader mode="any" sound></webnfc-reader>
- * ```
+   <webnfc-reader mode="any" sound></webnfc-reader>
+   ```
  *
  * #### Attributes
  * | Name | Description | Default |

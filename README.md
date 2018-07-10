@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/%40justinribeiro%2Fwebnfc-reader.svg)](https://badge.fury.io/js/%40justinribeiro%2Fwebnfc-reader)
+
 # \<webnfc-reader\>
 
 > A web component that uses [WebNFC](https://w3c.github.io/web-nfc/) to read NFC tags.
@@ -37,7 +39,8 @@ Finally, use as required:
 
 Currently, WebNFC is behind a Chrome flag on Android. To enable, go to chrome://flags and enabled WebNFC on an Android compatible device.
 
- #### Attributes
+## Attributes
+
  | Name | Description | Default |
  | --- | --- | --- |
  | `src` | NFCWatchOptions.url property denotes the URL pattern which is used for matching the Web NFC Id of Web NFC messages which are being read. The default value "" means that no matching happens. | `` |
@@ -47,7 +50,8 @@ Currently, WebNFC is behind a Chrome flag on Android. To enable, go to chrome://
  | `verbose` | Status messages sent through custom event `webnfc-reader-status` | false |
  | `sound` | Make a beep sound through Web Audio API when tag is read | false |
 
- #### Events
+## Events
+
  | Name | Description
  | --- | --- |
  | webnfc-reader-status | Watch and status messages |
