@@ -54,5 +54,5 @@ Currently, WebNFC is behind a Chrome flag on Android. To enable, go to chrome://
 
  | Name | Description
  | --- | --- |
- | webnfc-reader-status | Watch and status messages |
- | webnfc-reader-watch | Receive WebNFC records on tag read |
+ | `webnfc-reader-status` | Watch and status messages |
+ | `webnfc-reader-watch` | Receive WebNFC records on tag read |
